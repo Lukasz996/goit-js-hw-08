@@ -16,10 +16,14 @@ form.addEventListener('input',throttle(() => {
 );
 
 form.addEventListener('submit', event => {
-    event.preventDefault(),
+    event.preventDefault();
+    const user = {
+        email: email.value,
+        message: message.value,
+      };
+      console.log(user);
     event.currentTarget.reset(),
     localStorage.removeItem('feedback-form-state');
-    
 });
 
 const savedState = localStorage.getItem('feedback-form-state');
@@ -27,7 +31,6 @@ const savedState = localStorage.getItem('feedback-form-state');
       const user = JSON.parse(savedState);
       email.value = user.email;
       message.value = user.message;
-      console.log(savedState);
     };
 
 
