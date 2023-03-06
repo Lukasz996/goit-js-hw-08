@@ -19,7 +19,34 @@ form.addEventListener('submit', event => {
     event.preventDefault(),
     event.currentTarget.reset(),
     localStorage.removeItem('feedback-form-state');
+    
 });
+
+const savedState = localStorage.getItem('feedback-form-state');
+    if (savedState) {
+      const user = JSON.parse(savedState);
+      email.value = user.email;
+      message.value = user.message;
+      console.log(savedState);
+    };
+
+
+
+
+
+// form.addEventListener('submit', event => {
+//     event.preventDefault();
+//     event.currentTarget.reset();
+//     const savedState = localStorage.getItem('feedback-form-state');
+//     if (savedState) {
+//       const user = JSON.parse(savedState);
+//       email.value = user.email;
+//       message.value = user.message;
+//     }
+//     localStorage.removeItem('feedback-form-state');
+//     console.log(user);
+//   });
+
 
 
 
